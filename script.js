@@ -45,6 +45,107 @@
 
 
 // mengubah node root
+// const sectionB = document.getElementById('b');
+// const p4 = sectionB.querySelector('p');
+// p4.style.backgroundColor = 'orange';
+
+
+// DOM manipulation
+
+// element.innerHTML utk mengubah isi dari sebuah tag atau menambah tag, yang sudah di seleksi
+// const h1Judul = document.getElementById('judul');
+// h1Judul.innerHTML = '<em>andi</em>';
+
+// const delSecA = document.querySelector('section#a');
+// delSecA.innerHTML= 'delete all id a';
+
+// menambah attribute
+// const p2 = document.querySelector('.p2');
+// p2.setAttribute('class' ,'label'); menimpa class dan isinya 
+
+
+const p2 = document.querySelector('.p2');
+p2.classList.add('label');   // menambah label pada class yang sudah ada atau menambah kalimat label di class pertama
+
+p2.classList.remove('label');  // menghapus class label
+
+p2.classList.toggle('label');  // pengecekan kalau label ada maka true  dan kalau label tidak ada maka akan false dan ditambahkan  label nya jika di jalankan lagi, begitu lah keduanya
+
+
+// buat element baru menggunakan appendChild()
+const pBaru = document.createElement('p');   // ket.  sudah dibuat tapi masih disimpan dimemori
+
+// teks utk element baru
+const pTextBaru = document.createTextNode('Paragraf Baru');
+
+// simpan teks ke dalam paragraf
+pBaru.appendChild(pTextBaru);
+
+// simpan pBaru di akhir section a
+const sectionA = document.getElementById('a');
+sectionA.appendChild(pBaru);
+
+
+// buat element baru menggunakan dan simpan menggunakan insertBefore
+// wadahnya
+const liBaru = document.createElement('li');
+
+// teks nya
+const liTextBaru = document.createTextNode('item baru');
+
+// gabungkan
+liBaru.appendChild(liTextBaru);
+
+// mengetahui parent nya 
+const ulIdB = document.querySelector('section#b ul');
+
+// element before
+const elementBefore = ulIdB.querySelector('li:nth-child(2)');
+
+// panggil element parent nya lalu insertBefore parent(node baru,element_before)
+ulIdB.insertBefore(liBaru,elementBefore);
+
+
+// parentNode.removeChild()
+
+// ketahui dulu parentnya 
+// const sectionA = document.getElementById('a');  // ada di atas
+
+// lalu ambil elementnya
+const link = document.getElementsByTagName('a')[0];
+
+// hapus
+sectionA.removeChild(link);
+
+
+// parentNode.replaceChild()   // menganti node
+
+// ketahui parent nya dulu
 const sectionB = document.getElementById('b');
+
+// tangkap element yang mau diganti atau replace
 const p4 = sectionB.querySelector('p');
-p4.style.backgroundColor = 'orange';
+
+// element yang akan dibuat  -> wadah 
+const h2Baru = document.createElement('h2');
+
+// isi dari element baru -> isi
+const teksH2Baru = document.createTextNode('Judul Baru');
+
+// memasukan ke wadahnya
+h2Baru.appendChild(teksH2Baru);
+
+// baru replace
+
+// ambil parent nya =  sectionB, lalu node barunya = h2Baru dan akan mereplace apa ? = p4
+sectionB.replaceChild(h2Baru, p4);
+
+
+// yang baru
+pBaru.style.backgroundColor= 'lightgreen';
+
+liBaru.style.backgroundColor = 'lightblue';
+
+h2Baru.style.backgroundColor = 'lightsalmon';
+
+
